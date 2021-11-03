@@ -8,6 +8,7 @@ from .async_plugin_manager import AsyncPluginManager
 from . import action
 from . import calibration
 from . import camera
+from . import camera_trigger_server
 from . import core
 from . import failure
 from . import follow_me
@@ -114,6 +115,7 @@ class System:
         self._plugins["action"] = action.Action(plugin_manager)
         self._plugins["calibration"] = calibration.Calibration(plugin_manager)
         self._plugins["camera"] = camera.Camera(plugin_manager)
+        self._plugins["camera_trigger_server"] = camera_trigger_server.CameraTriggerServer(plugin_manager)
         self._plugins["core"] = core.Core(plugin_manager)
         self._plugins["failure"] = failure.Failure(plugin_manager)
         self._plugins["follow_me"] = follow_me.FollowMe(plugin_manager)
@@ -156,6 +158,12 @@ class System:
         if "camera" not in self._plugins:
             raise RuntimeError(self.error_uninitialized("Camera"))
         return self._plugins["camera"]
+
+    @property
+    def camera_trigger_server(self) -> camera_trigger_server.CameraTriggerServer:
+        if "camera_trigger_server" not in self._plugins:
+            raise RuntimeError(self.error_uninitialized("CameraTriggerServer"))
+        return self._plugins["camera_trigger_server"]
 
     @property
     def core(self) -> core.Core:

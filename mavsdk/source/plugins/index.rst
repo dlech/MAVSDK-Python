@@ -31,3 +31,4 @@ Plugins
    telemetry_server
    action_server
    mission_raw_server
+   camera_trigger_server
