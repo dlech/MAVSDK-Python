@@ -1,0 +1,5 @@
+mavsdk-python (1.2.0+6.gf98d7b3+skywrangler1) bullseye; urgency=medium
+
+  * Initial release.
+
+ -- David Lechner <david@ablerobots.com>  Thu, 28 Apr 2022 00:44:18 +0000

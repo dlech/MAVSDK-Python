@@ -118,7 +118,7 @@ class custom_build(build):
 
 
 def version():
-    process = subprocess.Popen(["git", "describe", "--tags"],
+    process = subprocess.Popen(["git", "describe", "--tags", "--match=1*"],
                                stdout=subprocess.PIPE)
     (output, err) = process.communicate()
     exit_code = process.wait()
@@ -150,7 +150,6 @@ setup(
     packages=find_packages(exclude=["other", "docs", "tests", "examples",
                                     "proto"]),
     install_requires=parse_requirements("requirements.txt"),
-    setup_requires=parse_requirements("requirements-dev.txt"),
 
     project_urls={
         "Bug Reports": "https://github.com/mavlink/MAVSDK-Python/issues",
